@@ -709,6 +709,7 @@ h1, h2, h3, h4, .font-display {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.75rem;
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {
@@ -730,6 +731,7 @@ h1, h2, h3, h4, .font-display {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
 }
@@ -742,37 +744,43 @@ h1, h2, h3, h4, .font-display {
 
 .ritual-thumb {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 220px;
   overflow: hidden;
   position: relative;
   background-color: var(--bg-subtle);
+  flex-shrink: 0;
 }
 
 .ritual-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ritual-card:hover .ritual-thumb img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .ritual-badge {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(255, 255, 255, 0.94);
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
-  padding: 0.3rem 0.75rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--color-accent);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .ritual-body {
